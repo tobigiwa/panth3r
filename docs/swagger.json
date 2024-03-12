@@ -1,0 +1,109 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Panth3r waitlist-backend API endpoints.",
+        "title": "Panth3r waitlist-backend",
+        "contact": {
+            "url": "https://www.Panth3r.io/"
+        },
+        "x-logo": {
+            "altText": "example logo",
+            "backgroundColor": "#000000",
+            "href": "https://example.com/img.png",
+            "url": "https://example.com/img.png"
+        }
+    },
+    "paths": {
+        "/healthcheck": {
+            "get": {
+                "description": "return application status",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "status"
+                ],
+                "summary": "Report application status",
+                "responses": {
+                    "200": {
+                        "description": "Server_status:available",
+                        "schema": {
+                            "$ref": "#/definitions/http.ServerStatus"
+                        }
+                    },
+                    "500": {
+                        "description": "INTERNAL SERVRER ERROR",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/joinwaitlist": {
+            "post": {
+                "description": "sends user registration email",
+                "tags": [
+                    "application"
+                ],
+                "summary": "sends user registration email",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Users any preferred name",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "format": "email",
+                        "description": "valid email address",
+                        "name": "email",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "CLIENT ERROR: BAD REQUEST",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "SERVER ERROR: INTERNAL SERVRER ERROR",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "http.ServerStatus": {
+            "type": "object",
+            "properties": {
+                "application_Env": {
+                    "type": "string"
+                },
+                "application_Version": {
+                    "type": "string"
+                },
+                "server_status": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "OpenAPI"
+    }
+}

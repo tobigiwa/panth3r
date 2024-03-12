@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .email-container {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            border: 2px solid #000000;
+        }
+
+        .header {
+            border: 0px solid #ccc;
+            padding: 0px;
+            text-align: center;
+        }
+
+        .header img {
+            width: 100%;
+            height: auto;
+        }
+
+
+        .content {
+            padding: 20px;
+        }
+
+        .centered-content {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .centered-content b {
+            background-color: #000;
+            color: #fff;
+            padding: 15px;
+            border-radius: 15px;
+        }
+
+        .centered-content a {
+            text-decoration: none;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #000000;
+            color: #ffffff !important;
+            padding: 10px 20px;
+            text-decoration: none !important;
+            margin-top: 20px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                box-shadow: none;
+                border: none;
+            }
+        }
+    </style>
+    <title>Panth3r Confirmation mail</title>
+</head>
+
+<body>
+    <div class="email-container">
+
+        <div class="header">
+            <img src="cid:Panth3rFrame" alt="Panth3rFrame">
+        </div>
+        <div class="content">
+            <h2>Hey {{ .Name }}, You're on the team 🤝🏾.</h2>
+            <p>Thank you for joining the Panth3r waitlist! We are delighted to have you on board.</p>
+
+            <p>Panth3r is a Solana-powered pre-sale platform designed for quick, cost-effective launches. More than just
+                a launchpad,
+                Panth3r provides robust support and expert advice, acting as a reliable partner in the Solana ecosystem.
+            </p>
+
+            <p>Your support is instrumental in achieving this goal. Please consider inviting others to sign up and be
+                part of our
+                community.</p>
+            <div class="centered-content">
+                <a href="https://www.Panth3r.xyz/#waitlist"><b>Copy Signup Link</b></a>
+                <p><i>No crypto experience required.</i></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

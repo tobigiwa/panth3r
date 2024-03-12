@@ -1,0 +1,72 @@
+definitions:
+  http.ServerStatus:
+    properties:
+      application_Env:
+        type: string
+      application_Version:
+        type: string
+      server_status:
+        type: string
+    type: object
+externalDocs:
+  description: OpenAPI
+info:
+  contact:
+    url: https://www.Panth3r.io/
+  description: Panth3r waitlist-backend API endpoints.
+  title: Panth3r waitlist-backend
+  x-logo:
+    altText: example logo
+    backgroundColor: '#000000'
+    href: https://example.com/img.png
+    url: https://example.com/img.png
+paths:
+  /healthcheck:
+    get:
+      description: return application status
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Server_status:available
+          schema:
+            $ref: '#/definitions/http.ServerStatus'
+        "500":
+          description: INTERNAL SERVRER ERROR
+          schema:
+            type: string
+      summary: Report application status
+      tags:
+      - status
+  /joinwaitlist:
+    post:
+      description: sends user registration email
+      parameters:
+      - description: Users any preferred name
+        in: query
+        name: name
+        required: true
+        type: string
+      - description: valid email address
+        format: email
+        in: query
+        name: email
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: 'CLIENT ERROR: BAD REQUEST'
+          schema:
+            type: string
+        "500":
+          description: 'SERVER ERROR: INTERNAL SERVRER ERROR'
+          schema:
+            type: string
+      summary: sends user registration email
+      tags:
+      - application
+swagger: "2.0"
