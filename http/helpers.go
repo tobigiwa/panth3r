@@ -33,11 +33,11 @@ func sendConfirmationMail(name, email string) error {
 		return err
 	}
 
-	if data, err = templ.Panth3rFrame.ReadFile("Panth3rFrame.png"); err != nil {
+	if data, err = templ.Panth3rFrame.ReadFile("Panth3r.jpg"); err != nil {
 		return err
 	}
 	m.Attach("Panth3rFrame.png", gomail.SetHeader(map[string][]string{
-		"Content-ID": {"Panth3rFrame"},
+		"Content-ID": {"Panth3r"},
 	}), gomail.SetCopyFunc(func(w io.Writer) error {
 		_, err := w.Write(data)
 		return err

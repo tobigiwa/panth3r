@@ -21,7 +21,7 @@ info:
     href: https://example.com/img.png
     url: https://example.com/img.png
 paths:
-  /healthcheck:
+  /:
     get:
       description: return application status
       produces:
@@ -38,7 +38,7 @@ paths:
       summary: Report application status
       tags:
       - status
-  /joinwaitlist:
+  /sendmail:
     post:
       description: sends user registration email
       parameters:
@@ -53,6 +53,8 @@ paths:
         name: email
         required: true
         type: string
+      produces:
+      - text/plain
       responses:
         "200":
           description: OK

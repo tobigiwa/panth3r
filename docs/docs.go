@@ -23,7 +23,7 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/healthcheck": {
+        "/": {
             "get": {
                 "description": "return application status",
                 "produces": [
@@ -49,9 +49,12 @@ const docTemplate = `{
                 }
             }
         },
-        "/joinwaitlist": {
+        "/sendmail": {
             "post": {
                 "description": "sends user registration email",
+                "produces": [
+                    "text/plain"
+                ],
                 "tags": [
                     "application"
                 ],
@@ -127,8 +130,6 @@ var SwaggerInfo = &swag.Spec{
 	Description:      "Panth3r waitlist-backend API endpoints.",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
-	LeftDelim:        "{{",
-	RightDelim:       "}}",
 }
 
 func init() {

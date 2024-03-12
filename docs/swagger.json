@@ -14,7 +14,7 @@
         }
     },
     "paths": {
-        "/healthcheck": {
+        "/": {
             "get": {
                 "description": "return application status",
                 "produces": [
@@ -40,9 +40,12 @@
                 }
             }
         },
-        "/joinwaitlist": {
+        "/sendmail": {
             "post": {
                 "description": "sends user registration email",
+                "produces": [
+                    "text/plain"
+                ],
                 "tags": [
                     "application"
                 ],
